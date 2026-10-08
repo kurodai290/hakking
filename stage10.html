@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 10 — FINAL BLACKBOX</title><link rel="stylesheet" href="../style.css"></head>
+<body>
+<header><div class="logo">BLACKBOX<span>//LAB</span></div><div class="status">FINAL STAGE</div></header>
+<main class="panel">
+<div class="top"><div><div class="tag">STAGE 10 / FINAL</div><h1>BLACKBOX CORE</h1></div></div>
+<div class="box">
+<p>最後は複数の場所を組み合わせる。</p>
+<p>DevToolsのElements、Console、Application、Network、そして読み込まれているファイルを全部調査せよ。</p>
+<details><summary>ログを表示</summary><div class="terminal" id="log"></div></details>
+<p class="hint">ヒント：このページだけを見て終わりにしない。HTMLから参照先を追跡する。</p>
+</div>
+<div class="box">
+<h2>FINAL UNLOCK</h2>
+<input id="answer" class="input" placeholder="最終解除コード">
+<button class="submit" id="go">UNLOCK</button>
+<div id="msg" class="msg"></div>
+</div>
+</main>
+<script src="../assets/core.js"></script>
+<script>
+const expected="BLACKBOX-FINAL-9017";
+document.getElementById("log").textContent="core module loaded...\\n"+window.BLACKBOX_FRAGMENT+"\\nadditional checks pending...";
+document.getElementById("go").onclick=()=>{
+ const m=document.getElementById("msg");
+ if(document.getElementById("answer").value.trim()===expected){
+   m.className="msg ok";m.textContent="BLACKBOX CORE UNLOCKED — LAB COMPLETE";
+ }else{m.className="msg bad";m.textContent="ACCESS DENIED";}
+};
+</script>
+</body></html>

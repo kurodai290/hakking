@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 6 — NETWORK</title><link rel="stylesheet" href="../style.css"></head>
+<body>
+<header><div class="logo">BLACKBOX<span>//LAB</span></div><div class="status">STAGE 06 / 10</div></header>
+<main class="panel">
+<div class="top"><div><div class="tag">STAGE 06</div><h1>NETWORK</h1></div><div class="hint">AUTHORIZED // LOCAL ONLY</div></div>
+<div class="box"><p>このステージでは、ブラウザが読み込む追加リソースを調査する。</p><p>ページのソースだけでなく、Networkタブのレスポンスも調べよう。</p><p class="hint">ヒント：ページを再読み込みして、種類をJS / Fetch / XHRなどに絞ってみる。</p></div>
+<div class="box">
+<h2>UNLOCK</h2>
+<input id="answer" class="input" autocomplete="off" placeholder="解除コード">
+<button class="submit" id="go">CHECK</button><div id="msg" class="msg"></div>
+</div>
+</main>
+<script>
+const expected="NET-PACKET-8802";
+document.getElementById('go').onclick=()=>{
+ const v=document.getElementById('answer').value.trim();
+ const m=document.getElementById('msg');
+ if(v===expected){m.className='msg ok';m.textContent='ACCESS GRANTED';setTimeout(()=>location.href="stage7.html",500)}
+ else{m.className='msg bad';m.textContent='ACCESS DENIED';}
+};
+fetch("../assets/stage6-data.txt").then(r=>r.text()).then(t=>console.log("lab resource loaded:",t));
+
+</script>
+</body></html>

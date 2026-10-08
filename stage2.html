@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 2 — ELEMENTS</title><link rel="stylesheet" href="../style.css"></head>
+<body>
+<header><div class="logo">BLACKBOX<span>//LAB</span></div><div class="status">STAGE 02 / 10</div></header>
+<main class="panel">
+<div class="top"><div><div class="tag">STAGE 02</div><h1>ELEMENTS</h1></div><div class="hint">AUTHORIZED // LOCAL ONLY</div></div>
+<div class="box"><p>Elementsパネルで、このボタンの属性を調べる。見た目に答えはない。</p><button id="locked" data-key="ELEM-4829" class="submit" type="button">LOCKED CONTROL</button><p class="hint">ヒント：属性はHTMLの「見えない部分」も含む。</p></div>
+<div class="box">
+<h2>UNLOCK</h2>
+<input id="answer" class="input" autocomplete="off" placeholder="解除コード">
+<button class="submit" id="go">CHECK</button><div id="msg" class="msg"></div>
+</div>
+</main>
+<script>
+const expected="ELEM-4829";
+document.getElementById('go').onclick=()=>{
+ const v=document.getElementById('answer').value.trim();
+ const m=document.getElementById('msg');
+ if(v===expected){m.className='msg ok';m.textContent='ACCESS GRANTED';setTimeout(()=>location.href="stage3.html",500)}
+ else{m.className='msg bad';m.textContent='ACCESS DENIED';}
+};
+
+</script>
+</body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 4 — CONSOLE</title><link rel="stylesheet" href="../style.css"></head>
+<body>
+<header><div class="logo">BLACKBOX<span>//LAB</span></div><div class="status">STAGE 04 / 10</div></header>
+<main class="panel">
+<div class="top"><div><div class="tag">STAGE 04</div><h1>CONSOLE</h1></div><div class="hint">AUTHORIZED // LOCAL ONLY</div></div>
+<div class="box"><p>Consoleで実行されているコードを調査する。ページの操作だけでは出ない情報がある。</p><p id="consoleTarget">ログはConsoleにだけ出る。</p><p class="hint">ヒント：ページのJavaScriptを読んだあと、Consoleで変数を確認してみよう。</p></div>
+<div class="box">
+<h2>UNLOCK</h2>
+<input id="answer" class="input" autocomplete="off" placeholder="解除コード">
+<button class="submit" id="go">CHECK</button><div id="msg" class="msg"></div>
+</div>
+</main>
+<script>
+const expected="CONSOLE-RED-551";
+document.getElementById('go').onclick=()=>{
+ const v=document.getElementById('answer').value.trim();
+ const m=document.getElementById('msg');
+ if(v===expected){m.className='msg ok';m.textContent='ACCESS GRANTED';setTimeout(()=>location.href="stage5.html",500)}
+ else{m.className='msg bad';m.textContent='ACCESS DENIED';}
+};
+const lab={token:"CONSOLE-RED-551",noise:"not-the-answer",level:4};
+console.log("LAB OBJECT:",lab);
+
+</script>
+</body></html>

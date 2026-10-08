@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /stages/stage9.html
+# training clue: ROUTE-404-KEY
